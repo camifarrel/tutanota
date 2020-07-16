@@ -1184,6 +1184,9 @@ module.exports = {
 		"yourCalendars_label": "Your calendars",
 		"yourFolders_action": "YOUR FOLDERS",
 		"yourMessage_label": "Your message",
-		"you_label": "You"
+		"you_label": "You",
+		"noUpdateAvailable_msg": "No update found.",
+		"installNow_action": "Install now.",
+		"checkingForUpdate_action": "Checking for Update…",
 	}
 }

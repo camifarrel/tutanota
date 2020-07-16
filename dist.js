@@ -163,7 +163,7 @@ function buildWebapp() {
 		              } else if (options.stage === 'prod') {
 			              restUrl = 'https://mail.tutanota.com'
 		              } else if (options.stage === 'local') {
-			              restUrl = "http://" + os.hostname().split(".")[0] + ":9000"
+			              restUrl = "http://" + os.hostname() + ":9000"
 		              } else if (options.stage === 'release') {
 			              restUrl = undefined
 		              } else { // host
@@ -216,7 +216,7 @@ function buildDesktopClient() {
 		} else if (options.stage === "local") {
 			const desktopLocalOpts = Object.assign({}, desktopBaseOpts, {
 				version: `${new Date().getTime()}.0.0`,
-				updateUrl: "http://localhost:9000/desktop-snapshot",
+				updateUrl: "http://localhost:9000/client/build/desktop-snapshot",
 				nameSuffix: "-snapshot",
 				notarize: false
 			})
@@ -277,7 +277,7 @@ function bundleServiceWorker(bundles) {
 			.concat(Object.keys(bundles).filter(b => !b.startsWith("translations")))
 			.concat(["images/logo-favicon.png", "images/logo-favicon-152.png", "images/logo-favicon-196.png", "images/ionicons.ttf"])
 		// Using "function" to hoist declaration, var wouldn't work in this case and we cannot prepend because
-		// of "delcare var"
+		// of "declare var"
 		const customDomainFileExclusions = ["index.html", "index.js"]
 		content = content + "\n" + "function filesToCache() { return " + JSON.stringify(filesToCache) + "}"
 			+ "\n function version() { return \"" + version + "\"}"
